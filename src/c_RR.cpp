@@ -184,11 +184,10 @@ void abs(RR &a, const c_RR &b)
 void sqrt(c_RR &z, const c_RR &a)
 {
     RR r = abs(a);
-    RR theta = conv<RR>(atan2(to_double(a.real),to_double(a.real)));
+    RR theta = conv<RR>(atan2(to_double(a.imag),to_double(a.real))/2.0);
     RR rr = sqrt(r);
-    RR rt = rr/2;
     z.real = rr * cos(theta);
-    z.imag = rt * sin(theta);
+    z.imag = rr * sin(theta);
 }
 
 void RoundPrec(c_RR &z, const c_RR &a, long prec)
@@ -210,7 +209,8 @@ void ConvPrec(c_RR &z, const c_RR &a, long prec)
 
 void RootOfUnit(c_RR &z, int N)
 {
-    RR PI(3.141592653589);
+    RR PI;
+    ComputePi(PI);
     RR angel(PI/N);
     clear(z);
     z.real = cos(angel);
