@@ -1,3 +1,8 @@
+The code library is only for personal learning and will be deleted upon infringement
+# Added the RR type of the required complex to the branch.
+
+
+
 NTL  -- a library for doing numbery theory --  version 11.5.1
 Release date: 2021.06.23
 
