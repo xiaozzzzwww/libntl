@@ -3,7 +3,7 @@
 #define NTL_vec_c_RR__H
 
 #include <NTL/vector.h>
-#include<NTL/c_RR>
+#include<NTL/c_RR.h>
 
 NTL_OPEN_NNS
 
