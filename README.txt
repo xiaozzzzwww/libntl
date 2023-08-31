@@ -1,5 +1,7 @@
 The code library is only for personal learning and will be deleted upon infringement
-# Added the RR type of the required complex to the branch.
+Added the RR type of the required complex to the branch.
+
+and the code have mamy problem
 
 
 
