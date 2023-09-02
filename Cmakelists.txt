@@ -1,11 +1,25 @@
 # 设置库的基本信息
 cmake_minimum_required(VERSION 3.10)
+
+if (NOT CMAKE_BUILD_TYPE)
+    set(CMAKE_BUILD_TYPE "RelWithDebInfo" CACHE STRING "Build type")
+    message(STATUS "No build type selected, default to ${CMAKE_BUILD_TYPE}")
+endif()
+
+option(NTL_USE_STATIC_LIBS "Use static of NTL libraries" ON)
+
+option(CMAKE_WITH_DEBUG "Build with debug" ON)
+
 project(ntl)
 set(CMAKE_CXX_STANDARD 11)
 set(CMAKE_CXX_STANDARD_REQUIRED ON)
 set(libntl "libntl")
-set(VCPKG_LIBRARY_VERSION 1.0.0)
-set(VCPKG_LIBRARY_CATEGORY Libraries)
+if(CMAKE_WITH_DEBUG)
+    set(libntl "libntld")
+endif(CMAKE_WITH_DEBUG)
+
+
+add_definitions(-w)
 
 # 设置库的依赖项（如果有）
 # set(VCPKG_DEPENDENCIES dependency1 dependency2)
@@ -18,18 +32,15 @@ file(GLOB_RECURSE SOURCE_FILES
 )
 
 file(GLOB_RECURSE HEADER_FILES
-"*.h"
+"include/NTL/*.h"
 )
+
+set(CMAKE_LIBRARY_OUTPUT_DIRECTORY ${CMAKE_SOURCE_DIR}/lib)
 
 include_directories(include)
 
 # 添加库的目标
-add_library(libntl STATIC
-    ${SOURCE_FILES}
-    ${HEADER_FILES}
-)
-
-add_library(ntl SHARED
+add_library(${libntl} STATIC
     ${SOURCE_FILES}
     ${HEADER_FILES}
 )
@@ -40,22 +51,17 @@ target_include_directories(${libntl} PUBLIC
     $<INSTALL_INTERFACE:include>
 )
 
-set("VCPKG_LIBRARY_VERSION" 11)
-set("VCPKG_LIBRARY_VERSION_MAJOR" 5.1)
-# 设置库的版本号
-set_target_properties(${libntl} PROPERTIES
-    VERSION ${VCPKG_LIBRARY_VERSION}
-    SOVERSION ${VCPKG_LIBRARY_VERSION_MAJOR}
-)
-
 # 安装库和头文件
 install(TARGETS ${libntl}
-    ARCHIVE DESTINATION lib
     LIBRARY DESTINATION lib
-    RUNTIME DESTINATION bin
 )
 
 install(FILES ${HEADER_FILES}
-    DESTINATION include/${libntl}
+    DESTINATION include/NTL
 )
+
+
+
+# file(COPY "*./lib" DESTINATION "./lib")
+# file(COPY "*.bin" DESTINATION "./bin")
 
