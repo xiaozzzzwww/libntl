@@ -1,4 +1,4 @@
-//°Ñ¸ÃÎÄ¼þ·Å½øNTLµÄ¸ùÄ¿Â¼Àï
+//æŠŠè¯¥æ–‡ä»¶æ”¾è¿›NTLçš„æ ¹ç›®å½•é‡Œ
 
 #include"GF2.h"
 #include"GF2X.h"
@@ -84,17 +84,17 @@
 #include<cstdarg>
 #include<sstream>
 
-std::string& ZZToString(const NTL::ZZ& z)
-{
-    std::stringstream buffer;
-    buffer << z;
-    return buffer.str();
-}
-NTL::ZZ& StringToZZ(const std::string& c)
-{
-    std::stringstream buffer;
-    buffer.str(c);
-    NTL::ZZ ret;
-    buffer >> ret;
-    return ret;
-}
+// std::string& ZZToString(const NTL::ZZ& z)
+// {
+//     std::stringstream buffer;
+//     buffer << z;
+//     return buffer.str();
+// }
+// NTL::ZZ& StringToZZ(const std::string& c)
+// {
+//     std::stringstream buffer;
+//     buffer.str(c);
+//     NTL::ZZ ret;
+//     buffer >> ret;
+//     return ret;
+// }
