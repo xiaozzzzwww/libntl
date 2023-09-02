@@ -8,16 +8,11 @@ endif()
 
 option(NTL_USE_STATIC_LIBS "Use static of NTL libraries" ON)
 
-option(CMAKE_WITH_DEBUG "Build with debug" OFF)
 
 project(ntl)
 set(CMAKE_CXX_STANDARD 11)
 set(CMAKE_CXX_STANDARD_REQUIRED ON)
 set(libntl "libntl")
-if(CMAKE_WITH_DEBUG)
-    set(libntl "libntld")
-endif(CMAKE_WITH_DEBUG)
-
 
 add_definitions(-w)
 
@@ -59,4 +54,9 @@ install(TARGETS ${libntl}
 install(FILES ${HEADER_FILES}
     DESTINATION include/NTL
 )
+
+
+
+# file(COPY "*./lib" DESTINATION "./lib")
+# file(COPY "*.bin" DESTINATION "./bin")
 
