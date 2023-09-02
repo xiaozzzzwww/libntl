@@ -60,8 +60,3 @@ install(FILES ${HEADER_FILES}
     DESTINATION include/NTL
 )
 
-
-
-# file(COPY "*./lib" DESTINATION "./lib")
-# file(COPY "*.bin" DESTINATION "./bin")
-
