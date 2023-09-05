@@ -1,0 +1,7 @@
+{
+    cmdlines = {
+        [[xmake l c:\Users\wxz\.vscode\extensions\tboox.xmake-vscode-2.2.1\assets\update_intellisense.lua .vscode]],
+        [[xmake l c:\Users\wxz\.vscode\extensions\tboox.xmake-vscode-2.2.1\assets\explorer.lua]],
+        "xmake check"
+    }
+}
